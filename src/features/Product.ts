@@ -8,7 +8,7 @@ export interface Product {
   imageUrl?: string;
 }
 
-export const products: Product[] = [
+const products: Product[] = [
   {
     id: "RHEN1",
     name: "Ruhi - Book 1",
@@ -100,3 +100,7 @@ export const products: Product[] = [
       "https://firebasestorage.googleapis.com/v0/b/training-institute-01.appspot.com/o/Ruhi%20-%20Book%203%20G1-img?alt=media&token=28a3f982-9e11-426e-b274-cf26e69628c9",
   },
 ];
+
+export const useProducts = () => {
+  return products;
+};
