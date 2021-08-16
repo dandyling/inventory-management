@@ -43,6 +43,9 @@ export const ProductDetails = () => {
           backgroundColor="white"
           borderRadius="2xl"
           ratio={3 / 4}
+          borderWidth="1px"
+          borderColor="gray.200"
+          shadow="lg"
         >
           <Image borderRadius="2xl" src={product.imageUrl} alt={product.name} />
         </AspectRatio>

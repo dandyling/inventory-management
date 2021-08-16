@@ -62,6 +62,7 @@ export const CurrentInventory = () => {
                           borderColor="gray.200"
                           ratio={3 / 4}
                           borderRadius="lg"
+                          shadow="md"
                         >
                           <Image
                             src={product.imageUrl}
