@@ -30,9 +30,10 @@ export const ProductDetails = () => {
     >
       <Flex
         flexDirection="column"
-        my="2"
+        mt="2"
         backgroundColor="white"
-        borderRadius="3xl"
+        borderTopLeftRadius="3xl"
+        borderTopRightRadius="3xl"
         padding="4"
         flex="1"
         overflowY="scroll"

@@ -42,7 +42,8 @@ export const CurrentInventory = () => {
                 fontSize="large"
                 fontWeight="normal"
                 color="gray.500"
-                margin="2"
+                marginTop="2"
+                marginX="2"
               >
                 {categoryName}
               </Heading>
