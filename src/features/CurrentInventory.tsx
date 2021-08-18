@@ -1,20 +1,23 @@
 import {
-  Grid,
-  Image,
-  Flex,
-  Text,
   AspectRatio,
+  Flex,
+  Grid,
   Heading,
+  Image,
+  Text,
 } from "@chakra-ui/react";
+import "firebase/firestore";
 import * as React from "react";
 import { Fragment } from "react";
 import { FaBars } from "react-icons/fa";
-import { Layout } from "../components/Layout";
-import { Product, useProducts } from "./Product";
 import { Link } from "react-router-dom";
+import { Layout } from "../components/Layout";
+import { Product } from "./Product";
+import { useProducts } from "./useProducts";
 
 export const CurrentInventory = () => {
-  const products = useProducts();
+  const { data: products = [] } = useProducts();
+
   const categories = getCategories(products);
   return (
     <Layout

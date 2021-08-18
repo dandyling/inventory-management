@@ -12,7 +12,7 @@ interface HeaderProps {
 export const Header = (props: HeaderProps) => {
   const { icon, onIconClick, title } = props;
   return (
-    <Flex pt="2" px="2" alignItems="center">
+    <Flex py="2" px="2" alignItems="center">
       <IconButton
         variant="ghost"
         aria-label="menu"

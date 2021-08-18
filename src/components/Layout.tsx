@@ -1,5 +1,7 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import { LinearProgress } from "@material-ui/core";
 import React, { ReactElement } from "react";
+import { useIsFetching } from "react-query";
 import { Header } from "./Header";
 
 interface LayoutProps {
@@ -11,6 +13,9 @@ interface LayoutProps {
 
 export const Layout = (props: LayoutProps) => {
   const { icon, onIconClick, title, children } = props;
+
+  const isFetching = useIsFetching();
+
   return (
     <Flex
       flexDirection="column"
@@ -19,7 +24,12 @@ export const Layout = (props: LayoutProps) => {
       minWidth="100vw"
     >
       <Header icon={icon} onIconClick={onIconClick} title={title} />
-      {children}
+      <Box position="relative">
+        <Flex position="absolute" top="0" left="0" width="100%">
+          {children}
+        </Flex>
+        {Boolean(isFetching) && <LinearProgress />}
+      </Box>
     </Flex>
   );
 };

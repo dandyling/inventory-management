@@ -12,11 +12,11 @@ import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { useHistory, useParams } from "react-router-dom";
 import { Layout } from "../components/Layout";
-import { useProducts } from "./Product";
+import { useProducts } from "./useProducts";
 
 export const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const products = useProducts();
+  const { data: products = [] } = useProducts();
   const product = products.find((p) => p.id === id);
   const history = useHistory();
   if (!product) {
@@ -30,7 +30,6 @@ export const ProductDetails = () => {
     >
       <Flex
         flexDirection="column"
-        mt="2"
         backgroundColor="white"
         borderTopLeftRadius="3xl"
         borderTopRightRadius="3xl"
