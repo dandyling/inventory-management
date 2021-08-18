@@ -13,12 +13,20 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useHistory, useParams } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { useProducts } from "./useProducts";
+import { useProductState } from "./useProductState";
 
 export const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data: products = [] } = useProducts();
   const product = products.find((p) => p.id === id);
+  const {
+    productState,
+    handleProductNameChange,
+    handleProductCategoryNameChange,
+    handleProductPriceChange,
+  } = useProductState(product);
   const history = useHistory();
+
   if (!product) {
     return null;
   }
@@ -52,15 +60,28 @@ export const ProductDetails = () => {
         <Form>
           <FormControl my="4" id="product-name">
             <FormLabel>Name</FormLabel>
-            <Input size="lg" value={product.name} />
+            <Input
+              size="lg"
+              value={productState?.name}
+              onChange={handleProductNameChange}
+            />
           </FormControl>
           <FormControl my="4" id="product-category">
             <FormLabel>Category</FormLabel>
-            <Input size="lg" value={product.categoryName} />
+            <Input
+              size="lg"
+              value={productState?.categoryName}
+              onChange={handleProductCategoryNameChange}
+            />
           </FormControl>
           <FormControl my="4" id="product-price">
             <FormLabel>Price</FormLabel>
-            <Input size="lg" value={product.price} />
+            <Input
+              size="lg"
+              type="number"
+              value={productState?.price}
+              onChange={handleProductPriceChange}
+            />
           </FormControl>
         </Form>
       </Flex>
